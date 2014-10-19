@@ -3,8 +3,12 @@ class DriversController < ApplicationController
   respond_to :html, :xml, :json
 
   def index
-    @drivers = Driver.all
-    respond_with(@drivers)
+    #@drivers = Driver.all
+    #respond_with(@drivers)
+    @search = Driver.search(params[:q])
+    @drivers = @search.result
+    @search.build_condition if @search.conditions.empty?
+    @search.build_sort if @search.sorts.empty?
   end
 
   def show
@@ -33,6 +37,11 @@ class DriversController < ApplicationController
   def destroy
     @driver.destroy
     respond_with(@driver)
+  end
+
+  def search
+    @search = Driver.search(params[:q])
+    @search_drivers = @search.result  
   end
 
   private

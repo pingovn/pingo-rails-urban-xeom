@@ -131,6 +131,8 @@ GEM
       activesupport (>= 3.0.0)
       cocaine (~> 0.5.3)
       mime-types
+    polyamorous (1.1.0)
+      activerecord (>= 3.0)
     pry (0.10.1)
       coderay (~> 1.1.0)
       method_source (~> 0.8.1)
@@ -165,6 +167,12 @@ GEM
       thor (>= 0.18.1, < 2.0)
     raindrops (0.13.0)
     rake (10.3.2)
+    ransack (1.4.1)
+      actionpack (>= 3.0)
+      activerecord (>= 3.0)
+      activesupport (>= 3.0)
+      i18n
+      polyamorous (~> 1.1)
     rdoc (4.1.2)
       json (~> 1.4)
     responders (1.1.1)
@@ -272,6 +280,7 @@ DEPENDENCIES
   quiet_assets
   rails (= 4.1.6)
   rails_layout
+  ransack
   rspec-rails
   sass-rails (~> 4.0.3)
   sdoc (~> 0.4.0)
