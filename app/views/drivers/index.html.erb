@@ -1,4 +1,4 @@
-<h1>Listing drivers</h1>
+<!-- <h1>Listing drivers</h1>
 
 <table>
   <thead>
@@ -34,6 +34,51 @@
   </tbody>
 </table>
 
-<br>
+<br> -->
+
+<%= search_form_for @search, url: search_drivers_path, method: :post do |f| %>
+  <%= f.condition_fields do |c| %>
+    <%= render "condition_fields", f: c %>
+  <% end %>
+  <p><%= link_to_add_fields "Add Conditions", f, :condition %></p>
+  <div class="field" id="sort">
+    Sort: <br/>
+    <%= f.sort_fields do |s| %>
+      <%= s.sort_select %> 
+    <% end %>
+  </div>
+  <div class="actions"><%= f.submit "Search", :class => 'btn btn-primary' %></div>
+<% end %>
+
+<table id="drviers" class="table">
+  <tr>
+    <th>First name</th>
+    <th>Last name</th>
+    <th>Address</th>
+    <th>Phone</th>
+    <th>Birthday</th>
+    <th>Gender</th>
+    <th>Driver license</th>
+    <th>Job</th>
+  </tr>
+  <% @drivers.each do |driver| %>
+      <tr>
+        <td><%= link_to(driver.first_name, driver) %></td>
+        <td><%= driver.last_name %></td>
+        <td><%= driver.address %></td>
+          <td><%= driver.phone %></td>
+          <td><%= driver.birthday %></td>
+          <td>
+            <%= if(driver.gender == 1) 
+                "Male" 
+              else 
+                "Female" 
+              end %>
+          </td>
+          <td><%= driver.driver_license %></td>
+          <td><%= driver.job %></td>
+      </tr>
+  <% end %>
+</table>
 
 <%= link_to 'New Driver', new_driver_path %>
