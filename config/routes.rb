@@ -2,7 +2,11 @@ Rails.application.routes.draw do
   devise_for :drivers
   resources :drivers do
   	collection do
-  		post :search, to: 'drivers#index'
+  	  post :search, to: 'drivers#index'
+  	end
+  	member do 
+  	  put 'like', to: 'drivers#upvote'
+  	  put 'dislike', to: 'drivers#downvote'	
   	end
   end
 

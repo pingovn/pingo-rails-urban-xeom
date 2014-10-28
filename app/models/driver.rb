@@ -3,7 +3,7 @@ class Driver < ActiveRecord::Base
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, #:registerable,
          :recoverable, :rememberable, :trackable #,:validatable
-
+  acts_as_votable
 
   has_attached_file :avatar, :styles => { :medium => "300x300>", :small => '50x50>', :thumb => "100x100>" }, :default_url => "",
     :url => "/images/avatars/:id/:style/:basename.:extension",
@@ -36,6 +36,9 @@ class Driver < ActiveRecord::Base
 
   validate :check_age_to_driver
 
+  def score
+    self.get_upvotes.size - self.get_downvotes.size  
+  end
 
   private
   def check_age_to_driver

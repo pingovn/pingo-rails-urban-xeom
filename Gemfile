@@ -1,4 +1,6 @@
 source 'https://rubygems.org'
+
+gem 'acts_as_votable'
 ruby '2.1.2'
 gem 'rails', '4.1.6'
 gem 'sass-rails', '~> 4.0.3'

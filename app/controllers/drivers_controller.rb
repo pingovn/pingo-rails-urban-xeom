@@ -1,5 +1,6 @@
 class DriversController < ApplicationController
-  before_action :set_driver, only: [:show, :edit, :update, :destroy]
+  before_action :authenticate_user!
+  before_action :set_driver, only: [:show, :edit, :update, :destroy, :upvote, :downvote]
   respond_to :html, :xml, :json
 
   def index
@@ -42,6 +43,16 @@ class DriversController < ApplicationController
   def search
     @search = Driver.search(params[:q])
     @search_drivers = @search.result  
+  end
+
+  def upvote
+    @driver.upvote_by current_user
+    redirect_to drivers_path
+  end
+
+  def downvote
+    @driver.downvote_by current_user 
+    redirect_to drivers_path
   end
 
   private
