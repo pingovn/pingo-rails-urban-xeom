@@ -1,4 +1,6 @@
 source 'https://rubygems.org'
+gem "letsrate", :git => "git://github.com/iammyr/letsrate.git"
+gem 'acts_as_votable'
 ruby '2.1.2'
 gem 'rails', '4.1.6'
 gem 'sass-rails', '~> 4.0.3'
@@ -17,6 +19,8 @@ gem 'pundit'
 gem 'simple_form'
 gem 'unicorn'
 gem 'unicorn-rails'
+gem "paperclip", "~> 4.2"
+gem "ransack"
 group :development do
   gem 'better_errors'
   gem 'binding_of_caller', :platforms=>[:mri_21]

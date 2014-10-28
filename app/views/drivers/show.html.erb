@@ -1,0 +1,57 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>First name:</strong>
+  <%= @driver.first_name %>
+</p>
+
+<p>
+  <strong>Last name:</strong>
+  <%= @driver.last_name %>
+</p>
+
+<p>
+  <strong>Address:</strong>
+  <%= @driver.address %>
+</p>
+
+<p>
+  <strong>Phone:</strong>
+  <%= @driver.phone %>
+</p>
+
+<p>
+  <strong>Birthday:</strong>
+  <%= @driver.birthday %>
+</p>
+
+<p>
+  <strong>Gender:</strong>
+  <%= @driver.gender %>
+</p>
+
+<p>
+  <strong>Driver license:</strong>
+  <%= @driver.driver_license %>
+</p>
+
+<p>
+  <strong>Avatar:</strong>
+  <%if !@driver.avatar.url.blank?%>
+    <%=image_tag @driver.avatar.url(:medium)%>
+  <%end%>
+</p>
+
+<p>
+  <strong>Job:</strong>
+  <%= @driver.job %>
+</p>
+<p>
+  <strong>Votes:</strong> </br>
+  Behaviour: <%= rating_for @driver, "behaviour"%> </br>
+  On time: <%= rating_for @driver, "on_time" %> </br>
+  Price: <%= rating_for @driver, "price" %> 
+</p>
+<hr/>
+<%= link_to 'Edit', edit_driver_path(@driver) %> |
+<%= link_to 'Back', drivers_path %>
