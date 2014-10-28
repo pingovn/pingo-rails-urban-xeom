@@ -46,6 +46,12 @@
   <strong>Job:</strong>
   <%= @driver.job %>
 </p>
-
+<p>
+  <strong>Votes:</strong> </br>
+  Behaviour: <%= rating_for @driver, "behaviour"%> </br>
+  On time: <%= rating_for @driver, "on_time" %> </br>
+  Price: <%= rating_for @driver, "price" %> 
+</p>
+<hr/>
 <%= link_to 'Edit', edit_driver_path(@driver) %> |
 <%= link_to 'Back', drivers_path %>

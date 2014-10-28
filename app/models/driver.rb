@@ -4,6 +4,7 @@ class Driver < ActiveRecord::Base
   devise :database_authenticatable, #:registerable,
          :recoverable, :rememberable, :trackable #,:validatable
   acts_as_votable
+  letsrate_rateable "behaviour", "on_time", "price"
 
   has_attached_file :avatar, :styles => { :medium => "300x300>", :small => '50x50>', :thumb => "100x100>" }, :default_url => "",
     :url => "/images/avatars/:id/:style/:basename.:extension",
