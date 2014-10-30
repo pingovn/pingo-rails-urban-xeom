@@ -1,0 +1,27 @@
+{
+  "name": "urban-xeom",
+  "version": "0.0.0",
+  "homepage": "https://github.com/pingovn/pingo-rails-urban-xeom",
+  "authors": [
+    "Doan Tran Quy <quydoantran@gmail.com>"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests",
+    "vendor/assets/bower_components"
+  ],
+  "moduleType": [
+    "yui"
+  ],
+  "keywords": [
+    "uban",
+    "xeom"
+  ],
+  "dependencies": {
+    "angular": "~1.3.0"
+  }
+}
