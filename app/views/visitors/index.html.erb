@@ -1,1 +1,75 @@
 <h3>Welcome</h3>
+
+<div class="row">
+  <div class="col-md-1"></div>
+  <div class="col-md-10">
+    <div class="row">
+        <div class="col-md-5">
+          <div class="col-md-1 address-text">Từ</div>
+          <div class="input-group">
+            <input type="text" id="from-address-input" name="fromName" class="form-control controls" placeholder="Nhập địa chỉ." />
+            <span class="input-group-btn">
+               <button class="btn btn-default" id="show-from-map" type="button">Bản đồ</button>
+            </span>
+          </div>
+          <div class="col-md-1"></div>
+          <div class="col-md-11 wrap-map-canvas">
+             <div id="from-map" ></div>
+          </div>
+        </div>
+        <div class="col-md-5">
+          <div class="col-md-1 address-text">đến</div>
+          <div class="input-group">
+              <input type="text" id="to-address-input" name="toName" class="form-control" placeholder="Nhập địa chỉ." />
+              <span class="input-group-btn">
+                <button class="btn btn-default" id="show-to-map"  type="button">Bản đồ</button>
+              </span>
+          </div>
+          <div class="col-md-1"></div>
+          <div class="col-md-11 wrap-map-canvas">
+            <div id="to-map" ></div>
+          </div>
+        </div>
+        <div class="col-md-2">
+          <button type="submit" class="btn btn-primary">Tìm kiếm</button>
+        </div>
+    </div>
+
+  </div>
+  <div class="col-md-1"></div>
+</div>
+<style>
+
+</style>
+
+<script>
+    $(document).ready(function(){
+        var data_from_map = initialize('from-map','from-address-input');
+        var data_to_map = initialize('to-map','to-address-input');
+
+        google.maps.event.trigger(data_from_map['map'], 'resize');
+        google.maps.event.trigger(data_to_map['map'], 'resize');
+        $("#from-map").hide();
+        $("#to-map").hide();
+        $('#show-from-map').click(function(){
+            $("#from-map").slideToggle("normal", function(){
+                google.maps.event.trigger(data_from_map['map'], 'resize');
+                if(data_from_map['autocomplete'].getPlace() && data_from_map['autocomplete'].getPlace().geometry){
+                    data_from_map['map'].setCenter(data_from_map['autocomplete'].getPlace().geometry.location);
+                }else{
+                    data_from_map['map'].setCenter(new google.maps.LatLng(14.397275, 108.509329));
+                }
+            });
+        });
+        $('#show-to-map').click(function(){
+            $("#to-map").slideToggle("normal", function(){
+                google.maps.event.trigger(data_to_map['map'], 'resize');
+                if(data_to_map['autocomplete'].getPlace() && data_to_map['autocomplete'].getPlace().geometry) {
+                    data_to_map['map'].setCenter(data_to_map['autocomplete'].getPlace().geometry.location);
+                }else{
+                    data_to_map['map'].setCenter(new google.maps.LatLng(14.397275, 108.509329));
+                }
+            });
+        });
+    });
+</script>

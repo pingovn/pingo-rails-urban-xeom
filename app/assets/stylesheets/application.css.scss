@@ -13,3 +13,24 @@
  *= require_tree .
  *= require_self
  */
+
+#from-map, #to-map {
+  width: 100%;
+  height: 100%;
+  margin: 0px;
+  padding: 0px;
+  border: 2px solid #ddd;
+  border-bottom-left-radius: 5px;
+  border-bottom-right-radius: 5px;
+}
+.wrap-map-canvas{
+  padding:0px;
+  /*width:100%;*/
+  height:300px;
+}
+.address-text{
+  font-weight: bold;
+  font-size: 16px;
+  margin: 7px 0 0 0;
+  padding:0px;
+}
