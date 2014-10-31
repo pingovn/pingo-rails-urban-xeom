@@ -2,7 +2,7 @@ Rails.application.routes.draw do
   devise_for :drivers
   resources :drivers do
   	collection do
-  		post :search, to: 'drivers#index'
+  		get :search, to: 'drivers#index'
   	end
   end
 

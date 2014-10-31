@@ -39,11 +39,6 @@ class DriversController < ApplicationController
     respond_with(@driver)
   end
 
-  def search
-    @search = Driver.search(params[:q])
-    @search_drivers = @search.result  
-  end
-
   private
     def set_driver
       @driver = Driver.find(params[:id])
