@@ -1,5 +1,23 @@
-<h1>New driver</h1>
+<h1 >New driver</h1>
+<div class="authform">
+  <%= simple_form_for @driver do |f| %>
+    <h3>Sign up</h3>
+     <%= f.error_notification %>
+    <div class="form-inputs">
+      <%= f.input :email, :autofocus => true , class: 'form-control'%>
+    </div>
+    
+    <div class="form-inputs">
+      <%= f.input :password, class: 'form-control'%>
+    </div>
+    <div class="form-inputs">
+      <%= f.input :password_confirmation, class: 'form-control'%>
+    </div>
 
-<%= render 'form' %>
+    <div class="form-actions">
+      <%= f.button :submit,:class => 'button right' %>
+    </div>
+  <% end %>
+</div>
 
 <%= link_to 'Back', drivers_path %>

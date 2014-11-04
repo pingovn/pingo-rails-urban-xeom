@@ -4,7 +4,7 @@ SimpleForm.setup do |config|
     b.use :html5
     b.use :placeholder
     b.use :label
-    b.wrapper tag: 'div', class: 'controls' do |ba|
+    b.wrapper tag: 'div', class: 'controls'  do |ba|
       ba.use :input
       ba.use :error, wrap_with: { tag: 'span', class: 'help-inline' }
       ba.use :hint,  wrap_with: { tag: 'p', class: 'help-block' }
@@ -23,6 +23,22 @@ SimpleForm.setup do |config|
       input.use :error, wrap_with: { tag: 'span', class: 'help-inline' }
     end
   end
+  # config.wrappers :phat_form, tag: 'div', class: 'authform', error_class: 'error' do |b|
+  #   b.use :html5
+  #   b.use :placeholder
+  #   b.use :label
+  #   b.wrapper tag: 'div', class: 'form-group'  do |ba|
+  #     ba.use :input
+  #     ba.use :error, wrap_with: { tag: 'span', class: 'help-inline' }
+  #     ba.use :hint,  wrap_with: { tag: 'p', class: 'help-block' }
+  #   end
+  # end
+   #  #  <div class='form-group'><ul><li><label></label><input></input></li></ul></div>
+   # config.wrappers :quy_form do |f|
+   #    f.wrapper tag: :ul do |input|
+   #      input.use :input,  wrap_with: {tag: :li, class: 'input'}
+   #    end
+   # end
 
   config.wrappers :append, tag: 'div', class: "control-group", error_class: 'error' do |b|
     b.use :html5

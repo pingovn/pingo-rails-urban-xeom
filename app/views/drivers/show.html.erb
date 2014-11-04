@@ -35,12 +35,6 @@
   <%= @driver.driver_license %>
 </p>
 
-<p>
-  <strong>Avatar:</strong>
-  <%if !@driver.avatar.url.blank?%>
-    <%=image_tag @driver.avatar.url(:medium)%>
-  <%end%>
-</p>
 
 <p>
   <strong>Job:</strong>
@@ -49,3 +43,11 @@
 
 <%= link_to 'Edit', edit_driver_path(@driver) %> |
 <%= link_to 'Back', drivers_path %>
+
+
+<!-- <p>
+  <strong>Avatar:</strong>
+  <%=
+  # if !@driver.avatar.url.blank?%>
+    # <%=image_tag @driver.avatar.url(:medium)%>
+  # <%end%></p> -->

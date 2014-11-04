@@ -5,36 +5,38 @@ class Driver < ActiveRecord::Base
          :recoverable, :rememberable, :trackable #,:validatable
 
 
-  has_attached_file :avatar, :styles => { :medium => "300x300>", :small => '50x50>', :thumb => "100x100>" }, :default_url => "",
-    :url => "/images/avatars/:id/:style/:basename.:extension",
-    :path => ":rails_root/public/images/avatars/:id/:style/:basename.:extension"
 
+  # has_attached_file :avatar, :styles => { :medium => "300x300>", :small => '50x50>', :thumb => "100x100>" }, :default_url => "",
+  #   :url => "/images/avatars/:id/:style/:basename.:extension",
+  #   :path => ":rails_root/public/images/avatars/:id/:style/:basename.:extension"
 
-  validates_attachment_content_type :avatar, :content_type => /\Aimage\/.*\Z/,
-                                    :size => { :in => 0..10*1024.kilobytes }
+  # validates_attachment_content_type :avatar, :content_type => /\Aimage\/.*\Z/,
+  #                                   :size => { :in => 0..10*1024.kilobytes }
 
   EMAIL_REGEX = /\A[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}\Z/i
 
   scope :sort_by_id, ->{order('drivers.id DESC')}
   scope :sort_by_name, ->{order('drivers.first_name ASC, drivers.last_name ASC')}
 
-  validates :first_name, :presence => true,
-                         :length => {:in => 4..20}
+  # validates :first_name, :presence => true,
+  #                        :length => {:in => 4..20}
 
-  validates :last_name, :presence => true,
-                        :length => {:in => 4..20}
+  # validates :last_name, :presence => true,
+  #                       :length => {:in => 4..20}
 
   validates :email, :presence => true,
                     :length => {:maximum => 255},
                     :format => EMAIL_REGEX
+  validates :password, :presence => true,
+                    :length => {minimum: 8}
 
-  validates :driver_license, :presence => true,
-                             :length => {:maximum => 20},
-                             :numericality => {only_integer: true}
+  # validates :driver_license, :presence => true,
+  #                            :length => {:maximum => 20},
+  #                            :numericality => {only_integer: true}
 
-  validates :gender, :numericality => {only_integer: true, greater_than: 0}
+  # validates :gender, :numericality => {only_integer: true, greater_than: 0}
 
-  validate :check_age_to_driver
+  # validate :check_age_to_driver
 
 
   private

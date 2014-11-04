@@ -26,7 +26,7 @@ class DriversController < ApplicationController
   def create
     @driver = Driver.new(driver_params)
     @driver.save
-    respond_with(@driver)
+    respond_with(@driver,location: driver_session_path)
   end
 
   def update
@@ -50,6 +50,6 @@ class DriversController < ApplicationController
     end
 
     def driver_params
-      params.require(:driver).permit(:first_name, :last_name, :address, :phone, :birthday, :gender, :driver_license, :job, :email, :avatar)
+      params.require(:driver).permit(:email,:password,:last_name, :address, :phone, :birthday, :gender, :driver_license, :job, :email, :avatar)
     end
 end
