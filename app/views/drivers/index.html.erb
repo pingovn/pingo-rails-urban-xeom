@@ -36,7 +36,8 @@
 
 <br> -->
 
-<%= search_form_for @search, url: search_drivers_path, method: :get do |f| %>
+<%= search_form_for @search, url: search_drivers_path do |f| %>
+
   <%= f.condition_fields do |c| %>
     <%= render "condition_fields", f: c %>
   <% end %>
@@ -52,14 +53,14 @@
 
 <table id="drviers" class="table">
   <tr>
-    <th>First name</th>
-    <th>Last name</th>
-    <th>Address</th>
-    <th>Phone</th>
-    <th>Birthday</th>
-    <th>Gender</th>
-    <th>Driver license</th>
-    <th>Job</th>
+    <th><%= sort_link @search, :first_name %></th>
+    <th><%= sort_link @search, :last_name %></th>
+    <th><%= sort_link @search, :address %></th>
+    <th><%= sort_link @search, :phone %></th>
+    <th><%= sort_link @search, :birthday %></th>
+    <th><%= sort_link @search, :gender %></th>
+    <th><%= sort_link @search, :driver_license %></th>
+    <th><%= sort_link @search, :job %></th>
   </tr>
   <% @drivers.each do |driver| %>
       <tr>
